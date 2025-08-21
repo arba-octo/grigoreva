@@ -1,0 +1,23 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+.main__title {
+    margin-top: 30px;
+}
+.main__title h1 {
+    font-size: 50px;
+    color: #898982;
+}
+.main__info {
+
+}
+.main__contacts {
+
+}
+.main__phones {
+
+}
+.main__contact-icons {
+
+}

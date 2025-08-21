@@ -1,0 +1,30 @@
+// Указывает, какой генератор использовать для создания Prisma Client или других утилит
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Задает параметры подключения к базе данных
+datasource db {
+  provider = "postgresql" // или mysql, sqlite, sqlserver, mongodb
+  url      = env("DATABASE_URL")
+}
+
+model Result {
+  id                Int         @id @default(autoincrement())
+  case              String      @unique
+  sumFirst          Int
+  sumNew            Int
+  sumResult         Int
+  comment           String
+  active            Boolean
+}
+
+model Feedback {
+    id                Int         @id @default(autoincrement())
+    key               Int         @unique
+    author            String
+    city              String
+    date              DateTime
+    content           String
+    active            Boolean
+}

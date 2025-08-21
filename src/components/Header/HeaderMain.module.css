@@ -1,0 +1,14 @@
+.header__bg {
+    width: 100vw;
+    background-color: #898982;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.header-main {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    color: white;
+    padding-left: 10px;
+}

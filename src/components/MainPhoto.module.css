@@ -1,0 +1,10 @@
+.main-photo__container {
+    position: relative;
+    width: 511px;
+    height: 700px;
+    overflow: hidden;
+}
+.main-photo {
+    object-fit: contain;
+    display: block;
+}

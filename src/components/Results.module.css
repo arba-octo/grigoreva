@@ -1,0 +1,12 @@
+.results__gallery-item {
+    grid-template-columns: 1fr max-content;
+}
+.results__result-value {
+    text-align: left;
+}
+.results__column-unite {
+    grid-column: 1 / span 2;
+}
+.results__result-comment {
+    font-size: 0.8em;
+}

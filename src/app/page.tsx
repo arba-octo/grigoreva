@@ -2,12 +2,12 @@
 // (чтобы данные с сервера отображались сразу же при загрузке страницы)
 import {getResults} from "@/libs/getResults";
 import {getFeedbacks} from "@/libs/getFeedbacks";
-import {TResults, TFeedBack} from "@/libs/types";
+import {TResult, TFeedBack} from "@/libs/types";
 import HomeClient from "@/components/HomeClient";
 
 export default async function Home() {
   const host: string = process.env.API_URL || "http://localhost:3000";
-  let results: TResults[] = []; // Заглушка для результатов работы
+  let results: TResult[] = []; // Заглушка для результатов работы
   let feedbacks: TFeedBack[]  = []; // Заглушка для отзывов
 
   try {

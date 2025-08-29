@@ -11,22 +11,35 @@
 .header-main {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     max-width: 1280px;
     margin: -7px auto;
+    color: white;
 }
 .header__logo {
-    padding-left: 5px;
     font-size: 25px;
     font-weight: 200;
-    color: white;
+
 }
 .header__right {
     display: flex;
-    column-gap: 10px;
+    column-gap: 30px;
     align-items: center;
+}
+.header__menu {
+    font-size: 25px;
+    font-weight: 200;
 }
 .header__contacts {
     display: flex;
     column-gap: 10px;
+}
+.header__contacts_no {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.header__contacts_yes {
+    opacity: 1;
+    transition: opacity 0.5s;
 }

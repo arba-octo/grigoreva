@@ -14,6 +14,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -38,9 +39,11 @@ a {
 .section {
   max-width: 1280px;
   width: 100%;
+  height: 100vh;
   margin: 10px auto;
   border-bottom: solid 1px #898982;
   padding-bottom: 20px;
+  scroll-margin-top: 80px;
 }
 .link-decoration {
   color: #898982;
@@ -68,7 +71,7 @@ a {
   font-size: 20px;
   font-weight: 200;
   line-height: 30px;
-  margin-top: 50px;
+  margin-top: 25vh;
 }
 .section__motivation {
   font-size: 20px;

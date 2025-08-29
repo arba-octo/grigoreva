@@ -1,15 +1,14 @@
 import {TFeedBack} from "@/libs/types";
-import styles from "@/components/Results.module.css";
 import Image from "next/image";
+import AutoScrollSection from "@/libs/autoScrollSection";
 
 type TFeedbacksProps = {
     feedbacks: TFeedBack[];
 }
 
 function Feedbacks({ feedbacks }: TFeedbacksProps) {
-    console.log('feedbacks приходит в Feedbacks', feedbacks);
     return (
-        <section className="section">
+        <AutoScrollSection id="feedbacks">
             <div className="section-title">
                 <h1>Отзывы клиентов</h1>
                 <div className="section__title-img">
@@ -34,7 +33,7 @@ function Feedbacks({ feedbacks }: TFeedbacksProps) {
                 ))}
             </div>
             <div className="section__motivation">Написать отзыв</div>
-        </section>
+        </AutoScrollSection>
     )
 };
 export default Feedbacks;

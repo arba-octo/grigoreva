@@ -1,7 +1,7 @@
 // Вся главная страница со структурой сайта
 'use client';
 
-import { useRef } from "react";
+import {useRef} from "react";
 import {TResult, TFeedBack} from "@/libs/types";
 import styles from "@/components/HomeClient.module.css";
 import MainContent from "@/components/MainContent";
@@ -10,7 +10,7 @@ import Disputes from "@/components/Disputes";
 import Benefits from "@/components/Benefits";
 import Results from "@/components/Results";
 import Feedbacks from "@/components/Feedbacks";
-import HeaderMain from "@/components/Header/HeaderMain";
+import Header from "@/components/Header/Header";
 
 type HomeClientProps = {
     results: TResult[];
@@ -18,12 +18,12 @@ type HomeClientProps = {
 };
 
 export default function HomeClient({ results, feedbacks }: HomeClientProps) {
-    const mainPageRef = useRef<HTMLDivElement>(null);
+    const mainPageRef = useRef<HTMLDivElement>(null); // Нужен для отображения контактов в меню Header
 
     return (
         <main className={styles.main}>
 
-            <HeaderMain mainPageRef={mainPageRef} />
+            <Header mainPageRef={mainPageRef} />
             <div
                 className={`${styles["main__main-page"]}`}
                 ref={mainPageRef}

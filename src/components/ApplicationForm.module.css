@@ -1,0 +1,46 @@
+.application-form__main {
+    max-width: 600px;
+    margin: 32px auto;
+    background-color: #fafafa;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 24px;
+}
+.application-form__title {
+    background-color: #e7edfa;
+    padding: 10px 16px;
+    border-radius: 5px 5px 0 0;
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.application-form__item {
+    margin-bottom: 12px;
+}
+.application-form__label {
+    font-weight: 200;
+}
+.application-form__value {
+    width: 100%;
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+.application-form__value-file {
+    display: block;
+    margin-top: 6px;
+}
+.application-form__error {
+    color: #b00;
+}
+.application-form__button {
+    background-color: #e7edfa;
+    color: #222;
+    padding: 8px 26px;
+    border-radius: 5px;
+    border: none;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}

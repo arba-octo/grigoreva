@@ -28,3 +28,14 @@ model Feedback {
     content           String
     active            Boolean
 }
+
+model Application {
+  id           Int      @id @default(autoincrement())
+  contactType  String
+  phone        String?
+  email        String?
+  question     String
+  fileName     String?
+  fileUrl      String?
+  createdAt    DateTime @default(now())
+}

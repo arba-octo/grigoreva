@@ -5,7 +5,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 import fs from "fs/promises";
 import path from "path";
-import { sendApplicationToTelegram } from "@/app/api/sendApplicationToTelegram/route";
+import { sendRequestToTelegram } from "@/app/api/sendRequestToTelegram/route";
 
 // Функция-обработчки POST-запроса из ApplicationForm:
 export async function POST(req: NextRequest) {
@@ -57,8 +57,9 @@ export async function POST(req: NextRequest) {
         });
 
 // Отправляем заявку в Telegram, обязательно передаём fileUrl
-        console.log('Перед вызовом sendApplicationToTelegram');
-        await sendApplicationToTelegram({
+        console.log('Перед вызовом sendRequestToTelegram');
+        await sendRequestToTelegram({
+            reqType: "application",
             phone: phoneStr,
             contactType: contactTypeStr,
             email: emailStr,
@@ -66,7 +67,7 @@ export async function POST(req: NextRequest) {
             fileName: fileNameValue,
             // fileBuffer, если нужно
         });
-        console.log('После вызова sendApplicationToTelegram');
+        console.log('После вызова sendRequestToTelegram');
 
         return new Response(JSON.stringify({ success: true, app }), { status: 200 });
     } catch (err: unknown) {

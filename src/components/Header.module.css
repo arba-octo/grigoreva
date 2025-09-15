@@ -1,0 +1,98 @@
+.header__bg {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: #898982;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+.footer__bg {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    background-color: #898982;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+}
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1280px;
+    margin: -7px auto;
+    color: white;
+    padding: 0 40px;
+}
+.footer__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    max-width: 1280px;
+    margin: -7px auto;
+    color: white;
+    padding: 0 40px;
+}
+.header__logo {
+    font-size: 25px;
+    font-weight: 200;
+
+}
+.header__right {
+    display: flex;
+    column-gap: 30px;
+    align-items: center;
+}
+.header__menu-text {
+    font-size: 25px;
+    font-weight: 200;
+    color: #fff;
+    font-family: Inter, Geist Sans, Geist Mono, sans-serif;
+}
+.header__menu-icon {
+
+}
+.header__contacts {
+    display: flex;
+    column-gap: 10px;
+}
+@media (max-width: 550px) {
+    .header__contacts {
+        display: none;
+    }
+}
+.footer__contacts {
+    display: flex;
+    column-gap: 10px;
+ }
+
+.header__contacts_no {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.header__contacts_yes {
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+/*------------ Стили из MenuDrawer -------------------*/
+.menu__ul {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+.menu__li {
+    display: flex;
+    color: #898982;
+    font-size: 16px;
+    column-gap: 7px;
+    align-items: center;
+}
+.menu__separator {
+    margin: 40px 0;
+}

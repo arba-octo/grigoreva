@@ -1,23 +1,25 @@
 // Наши преимущества
 import Image from "next/image";
-import AutoScrollSection from "@/libs/autoScrollSection";
 
 function Benefits() {
 
     return (
-        <AutoScrollSection id="results">
-                <div className="section-title">
-                    <h1>Преимущества работы с нами</h1>
-                    <div className="section__title-img">
-                        < Image
-                            width={277}
-                            height={193}
-                            alt="Судебные споры"
-                            src="/images/benefits.png"
-                        />
-                    </div>
-                </div>
 
+        <section id="benefits" className="section">
+
+            <div className="section-title">
+                <h1>Преимущества работы с нами</h1>
+                <div className="section__title-img">
+                    < Image
+                        width={277}
+                        height={193}
+                        alt="Судебные споры"
+                        src="/images/benefits.png"
+                    />
+                </div>
+            </div>
+
+            <div className="section__content">
                 <ul className="section__list">
                     <li>0 рублей консультация</li>
                     <li>0 рублей до нашей победы в суде</li>
@@ -26,10 +28,13 @@ function Benefits() {
                     Сначала мы работаем, и потом, в случае положительного результата, вы оплачиваете нашу работу как
                     комиссию от полученной по суду суммы.
                 </p>
-                <p className="section__list">
-                    Размер комиссии составляет от *** до *** % в зависимости от сложности дела.
+                <p>
+                    * Размер комиссии составляет от *** до *** % в зависимости от сложности дела.
                 </p>
-        </AutoScrollSection>
+            </div>
+
+        </section>
+
     )
 };
 export default Benefits;

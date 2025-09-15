@@ -1,58 +1,36 @@
-import { useState } from "react";
-import {Box, Button, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
-import {sections} from "@/libs/const";
-import styles from "@/components/Header/Header.module.css";
+'use client';
 
-export function MenuDrawer() {
-    // Проктурка страницы при клике на пункте меню
-    const scrollToSection = (id: string) => {
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({behavior: 'smooth'});
-        }
-    };
+import styles from "@/components/MenuDrawer.module.css";
 
-    // Отображение меню
-    const [openMenu, setOpenMenu] = useState(false);
-    const toggleMenu = (newOpen: boolean) => () => {
-        setOpenMenu(newOpen);
-    };
+type TMenuDrawerProps = {
+    open: boolean;
+    onClose: () => void;
+    children: React.ReactNode;
+}
+
+export function MenuDrawer({ open, onClose, children }: TMenuDrawerProps) {
 
     return (
-        <div className={styles["header__menu"]}>
-            <Button onClick={toggleMenu(true)}
-                    sx={{color: 'white', fontSize: '25px', fontWeight: '200', fontFamily: 'inherit'}}>МЕНЮ</Button>
-            <Drawer open={openMenu} onClose={toggleMenu(false)}>
-
-                <Box sx={{width: 250}} role="presentation" onClick={toggleMenu(false)}>
-                    <List>
-                        {sections.map(({text, id, icon: Icon}) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton onClick={() => scrollToSection(id)}>
-                                    <ListItemIcon>
-                                        <Icon/>
-                                    </ListItemIcon>
-                                    <ListItemText primary={text}/>
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                    <Divider/>
-                    <List>
-                        {['Позвонить', 'Написать Whatsup', 'Написать Telegram', 'Заявка на консультацию'].map((text, icon) => (
-                            <ListItem key={text} disablePadding>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                        {}
-                                    </ListItemIcon>
-                                    <ListItemText primary={text}/>
-                                </ListItemButton>
-                            </ListItem>
-                        ))}
-                    </List>
-                </Box>
-
-            </Drawer>
-        </div>
-    )
+        <>
+            {/* Overlay - блокирует и затемняет всю тсраницу, кроме меню */}
+            <div
+                className={`${styles.overlay} ${open ? styles.overlayVisible : ""}`}
+                onClick={onClose}
+            />
+            {/* Drawer panel - сама панель с меню */}
+            <aside
+                className={`${styles.drawer} ${
+                    open ? styles.drawerOpen : ""
+                }`}
+                tabIndex={-1}
+                role="dialog"
+                aria-modal="true"
+            >
+                <button className={styles.closeBtn} onClick={onClose}>
+                    ×
+                </button>
+                <div className={styles.content}>{children}</div>
+            </aside>
+        </>
+    );
 }

@@ -45,6 +45,7 @@ async function main() {
     const feedback1 = await prisma.feedback.upsert({
         where: { key: 1 },
         update: {
+            reqType: "feedback",
             author: "Наталья М.",
             city: "Санкт-Петербург",
             date: new Date("2024-11-25"),
@@ -53,16 +54,18 @@ async function main() {
         },
         create: {
             key: 1,
+            reqType: "feedback",
             author: "Наталья М.",
+            content: "Получили от фонда развития территорий сумму достаточную для покупкижилья, в два раза больше предложенной фондом!!! Счастью нашему нет предела!!!",
             city: "Санкт-Петербург",
             date: new Date("2024-11-25"),
-            content: "Получили от фонда развития территорий сумму достаточную для покупкижилья, в два раза больше предложенной фондом!!! Счастью нашему нет предела!!!",
             active: true
         },
     });
     const feedback2 = await prisma.feedback.upsert({
         where: { key: 2 },
         update: {
+            reqType: "feedback",
             author: "Роман З.",
             city: "Краснодар",
             date: new Date("2025-05-23"),
@@ -71,6 +74,7 @@ async function main() {
         },
         create: {
             key: 2,
+            reqType: "feedback",
             author: "Роман З.",
             city: "Краснодар",
             date: new Date("2025-05-23"),

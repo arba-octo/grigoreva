@@ -90,7 +90,7 @@ export function ApplicationForm() {
                         </div>
 
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="phone" className={styles["application-form__label"]}>Ваш телефон</label>
+                            <label htmlFor="phone" className={styles["application-form__label"]}>Ваш телефон (в формате +79991112233)</label>
                             <Field
                                 type="text"
                                 name="phone"

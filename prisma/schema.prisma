@@ -19,9 +19,15 @@ model Result {
   active            Boolean
 }
 
+enum RequestType {
+  feedback
+  application
+}
+
 model Feedback {
-    id                Int         @id @default(autoincrement())
-    key               Int         @unique
+    id                Int           @id @default(autoincrement())
+    key               Int           @unique
+    reqType           RequestType   @default(feedback)
     author            String
     city              String
     date              DateTime
@@ -30,12 +36,13 @@ model Feedback {
 }
 
 model Application {
-  id           Int      @id @default(autoincrement())
-  contactType  String
-  phone        String?
-  email        String?
-  question     String
-  fileName     String?
-  fileUrl      String?
-  createdAt    DateTime @default(now())
+  id                Int             @id @default(autoincrement())
+  reqType           RequestType     @default(application)
+  contactType       String
+  phone             String?
+  email             String?
+  question          String
+  fileName          String?
+  fileUrl           String?
+  createdAt         DateTime        @default(now())
 }

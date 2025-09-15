@@ -1,0 +1,45 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+.overlayVisible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    background: #fff;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+    transform: translateX(-100%);
+    transition: transform 0.3s;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    right: auto;
+
+}
+.drawerOpen {
+    transform: translateX(0);
+}
+.closeBtn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    align-self: flex-end;
+    margin: 8px 16px 0 0;
+    cursor: pointer;
+}
+.content {
+    flex: 1;
+    padding: 24px 16px;
+    overflow-y: auto;
+}

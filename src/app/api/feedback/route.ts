@@ -3,7 +3,7 @@
 import { NextRequest } from "next/server";
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
-import {sendRequestToTelegram} from "@/app/api/sendRequestToTelegram/route";
+import { sendRequestToTelegram } from "@/libs/sendRequestToTelegram";
 
 // Функция-обработчки POST-запроса из ApplicationForm:
 export async function POST(req: NextRequest) {

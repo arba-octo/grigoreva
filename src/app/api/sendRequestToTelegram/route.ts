@@ -1,4 +1,4 @@
-//
+import { NextRequest } from "next/server";
 import FormData from 'form-data';
 import fs from 'fs';
 import fetch from 'node-fetch';
@@ -25,12 +25,26 @@ type TSendFeedbackToTelegramProps = {
 }
 type TSendReqToTelegram = TSendApplicationToTelegramProps | TSendFeedbackToTelegramProps;
 
-export async function sendRequestToTelegram(props: TSendReqToTelegram) {
-    console.log("Зашли в sendRequestToTelegram");
+// Обработчик POST - нужен для корректной обработки запроса:
+export async function POST(request: NextRequest) {
+    try {
+        const props = await request.json();
+        // Вызов логики обработки запроса отправки:
+        await sendRequestToTelegram(props);
+        return new Response(JSON.stringify({ ok: true }));
+    } catch (e) {
+        console.error(e);
+        return new Response(
+            JSON.stringify({ ok: false, error: (e as Error)?.message || String(e) }),
+            { status: 500 }
+        );
+    }
+}
+
+async function sendRequestToTelegram(props: TSendReqToTelegram) {
     switch (props.reqType) {
 
         case "application":
-            console.log("Зашли в case \"application\"");
             const { contactType, phone, email, question, fileName } = props as TSendApplicationToTelegramProps;
             const textApplication =
                 `Новая заявка с сайта grigoreva:\n` +

@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
     "seed": "prisma db seed"
@@ -15,7 +15,7 @@
     "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
-    "@prisma/client": "^6.14.0",
+    "@prisma/client": "^6.16.1",
     "form-data": "^4.0.4",
     "formidable": "^3.5.4",
     "formik": "^2.4.6",
@@ -34,6 +34,7 @@
     "@types/react-dom": "^19.1.9",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
+    "prisma": "^6.16.1",
     "typescript": "^5.9.2"
   },
   "prisma": {

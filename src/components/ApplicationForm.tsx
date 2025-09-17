@@ -9,13 +9,21 @@ const contactOptions = [
     { value: "Email", label: "Email" },
 ];
 
+interface IFormValues {
+    question: string;
+    contactType: string;
+    file: File | null;
+    phone: string;
+    email: string;
+}
+
 export function ApplicationForm() {
     return (
         <div className={styles["application-form__main"]}>
             <div className={styles["application-form__title"]}>
                 Заявка на консультацию
             </div>
-            <Formik
+            <Formik<IFormValues>
                 initialValues={{
                     question: "",
                     contactType: "Звонок",
@@ -61,16 +69,20 @@ export function ApplicationForm() {
                     });
                 }}
             >
-                {({ isSubmitting, setFieldValue }) => (
+                {({ isSubmitting, setFieldValue, values }) => (
                     <Form>
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="question" className={styles["application-form__label"]}>Напишите свой вопрос</label>
-                            <Field as="textarea" name="question" rows="5" className={styles["application-form__value"]} />
-                            <ErrorMessage name="question" component="div" className={styles["application-form__error"]} />
+                            <label htmlFor="question" className={styles["application-form__label"]}>Напишите свой
+                                вопрос</label>
+                            <Field as="textarea" name="question" rows="5"
+                                   className={styles["application-form__value"]}/>
+                            <ErrorMessage name="question" component="div"
+                                          className={styles["application-form__error"]}/>
                         </div>
 
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="contactType" className={styles["application-form__label"]}>Как с вами лучше связаться? Выберите нужный вариант</label>
+                            <label htmlFor="contactType" className={styles["application-form__label"]}>Как с вами лучше
+                                связаться? Выберите нужный вариант</label>
                             <Field as="select" name="contactType" className={styles["application-form__value"]}>
                                 {contactOptions.map(opt => (
                                     <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -79,28 +91,43 @@ export function ApplicationForm() {
                         </div>
 
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="file" className={styles["application-form__label"]}>Если есть сканы документов то можете их прикрепить здесь</label>
-                            <input
-                                id="file"
-                                name="file"
-                                type="file"
-                                className={styles["application-form__value-file"]}
-                                onChange={event => setFieldValue("file", event.currentTarget.files?.[0])}
-                            />
+                            <label htmlFor="file" className={styles["application-form__label"]}>
+                                Если есть сканы документов, то можете их прикрепить здесь:
+                            </label>
+                            {/* Кастомная кнопка для выбора файла */}
+                            <div className={styles["application-form__custom-file-wrapper"]}>
+                                <label className={styles["application-form__custom-file-label"]}>
+                                    <span>Выбрать файл</span>
+                                    <input
+                                        id="file"
+                                        name="file"
+                                        type="file"
+                                        style={{display: "none"}}
+                                        onChange={event => setFieldValue("file", event.currentTarget.files?.[0])}
+                                    />
+                                </label>
+                                {/* Статус выбранного файла */}
+                                <div className={styles["application-form__custom-file-status"]}>
+                                    {values.file ? values.file.name : "Не выбран ни один файл"}
+                                </div>
+                            </div>
+
                         </div>
 
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="phone" className={styles["application-form__label"]}>Ваш телефон (в формате +79991112233)</label>
+                            <label htmlFor="phone" className={styles["application-form__label"]}>Ваш телефон (в формате
+                                +79991112233)</label>
                             <Field
                                 type="text"
                                 name="phone"
                                 className={styles["application-form__value"]}
                             />
-                            <ErrorMessage name="phone" component="div" className={styles["application-form__error"]} />
+                            <ErrorMessage name="phone" component="div" className={styles["application-form__error"]}/>
                         </div>
 
                         <div className={styles["application-form__item"]}>
-                            <label htmlFor="email" className={styles["application-form__label"]}>Ваш email (если связь через эл. почту)</label>
+                            <label htmlFor="email" className={styles["application-form__label"]}>Ваш email (если связь
+                                через эл. почту)</label>
                             <Field
                                 type="email"
                                 name="email"

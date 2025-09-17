@@ -1,10 +1,20 @@
 .application-form__main {
-    max-width: 600px;
+    width: 100%;
     margin: 32px auto;
     background-color: #fafafa;
     border-radius: 5px;
     box-shadow: 0 2px 8px #0001;
     padding: 24px;
+}
+@media (max-width: 800px) {
+    .application-form__main {
+        padding: 15px;
+    }
+}
+@media (max-width: 450px) {
+    .application-form__main {
+        padding: 10px;
+    }
 }
 .application-form__title {
     background-color: #e7edfa;
@@ -19,6 +29,33 @@
 }
 .application-form__label {
     font-weight: 200;
+    display: inline-block;
+}
+.application-form__custom-file-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+@media (max-width: 550px) {
+    .application-form__custom-file-wrapper {
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+    }
+}
+.application-form__custom-file-label {
+    cursor: pointer;
+    background: #f3f3f3;
+    border: 1px solid #bbb;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+.application-form__custom-file-status {
+    margin-top: 3px;
+    font-size: 14px;
+    color: #333;
 }
 .application-form__value {
     width: 100%;
@@ -30,6 +67,11 @@
 .application-form__value-file {
     display: block;
     margin-top: 6px;
+}
+@media (max-width: 600px) {
+    .application-form__value-file {
+        width: 100%;
+    }
 }
 .application-form__error {
     color: #b00;
